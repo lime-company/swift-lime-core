@@ -32,7 +32,7 @@ public class LimeDebug {
     /// Prints simple message to the debug console.
     public static func print(_ message: String) {
         #if DEBUG
-            print(message)
+            Swift.print(message)
         #endif
     }
     
@@ -40,7 +40,7 @@ public class LimeDebug {
     public static func print(_ format: String, _ args: CVarArg...) {
         #if DEBUG
             let message = NSString(format: format, arguments: getVaList(args)) as String
-            print(message)
+            Swift.print(message)
         #endif
     }
     
