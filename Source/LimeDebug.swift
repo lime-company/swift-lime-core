@@ -16,11 +16,18 @@
 
 import Foundation
 
-/**
- A Debug class provides simple logging facility available for DEBUG
- build of the library.
- */
-public class Debug {
+/// The LimeDebug class provides simple logging facility available for DEBUG
+/// build of the library.
+///
+/// Recommended usage in Lime libraries:
+/// ```
+/// internal typealias D = LimeDebug
+///
+/// func someFunc() {
+///    D.print("This is debug information.")
+/// }
+/// ```
+public class LimeDebug {
     
     /// Prints simple message to the debug console.
     public static func print(_ message: String) {
@@ -36,8 +43,5 @@ public class Debug {
             print(message)
         #endif
     }
-
+    
 }
-
-
-

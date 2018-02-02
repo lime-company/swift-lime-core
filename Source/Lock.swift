@@ -16,33 +16,25 @@
 
 import Dispatch
 
-/***
- The Lock class is a simple thread synchronization primitive which provides
- simple lock / unlock methods and synchronized block execution.
-
- The DispatchSemafore is used as underlying synchronization primitive.
- */
+/// The Lock class is a simple thread synchronization primitive which provides
+/// simple lock / unlock methods and synchronized block execution.
+///
+/// The `DispatchSemafore` is used as underlying synchronization primitive.
 public class Lock {
     
-    /**
-     Attempts to acquire a lock, blocking a thread’s execution
-     until the lock can be acquired.
-     */
+    /// Attempts to acquire a lock, blocking a thread’s execution
+    /// until the lock can be acquired.
     public func lock() {
         semaphore.wait()
     }
     
-    /**
-     Releases a previously acquired lock.
-     */
+    /// Releases a previously acquired lock.
     public func unlock() {
         semaphore.signal()
     }
     
-    /**
-     Executes block after lock is acquired and releases it immediately
-     afterwards.
-     */
+
+    /// Executes block after lock is acquired and releases it immediately afterwards.
     public func synchronized<T>(_ block: () -> T) -> T {
         semaphore.wait()
         defer {
@@ -50,10 +42,13 @@ public class Lock {
         }
         return block()
     }
-
-    /**
-     A private `DispatchSemaphore` as underlying synchronization primitive.
-     */
-    private let semaphore = DispatchSemaphore(value: 1)
+    
+    /// Designated initializer
+    public init() {
+        semaphore = DispatchSemaphore(value: 1)
+    }
+    
+    /// A private `DispatchSemaphore` as underlying synchronization primitive.
+    private let semaphore: DispatchSemaphore
 }
 
