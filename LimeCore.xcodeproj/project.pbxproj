@@ -23,10 +23,12 @@
 		BF08C1ED2024525200EC2529 /* LimeDebug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LimeDebug.swift; sourceTree = "<group>"; };
 		BF08C1EF2024525200EC2529 /* Lock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
 		BF08C1F02024525200EC2529 /* WeakArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakArray.swift; sourceTree = "<group>"; };
-		BF08C1FA202458A000EC2529 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = LimeCore/Info.plist; sourceTree = "<group>"; };
-		BF08C1FB202458A000EC2529 /* LimeCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LimeCore.h; path = LimeCore/LimeCore.h; sourceTree = "<group>"; };
+		BF08C1FA202458A000EC2529 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
+		BF08C1FB202458A000EC2529 /* LimeCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LimeCore.h; path = Source/LimeCore.h; sourceTree = "<group>"; };
 		BF08C1FE202458A800EC2529 /* LimeCore.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LimeCore.podspec; sourceTree = "<group>"; };
 		BF08C25220247F8400EC2529 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BF0946BF2029DC8C002F76A6 /* LimeCore.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LimeCore.podspec; sourceTree = "<group>"; };
+		BF0946C02029DC8D002F76A6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,12 +81,22 @@
 		BF08C1F92024586F00EC2529 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BF08C1FA202458A000EC2529 /* Info.plist */,
+				BF0946BE2029DC70002F76A6 /* Deploy */,
 				BF08C1FB202458A000EC2529 /* LimeCore.h */,
 				BF08C1FE202458A800EC2529 /* LimeCore.podspec */,
+				BF08C1FA202458A000EC2529 /* Info.plist */,
 				BF08C25220247F8400EC2529 /* README.md */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BF0946BE2029DC70002F76A6 /* Deploy */ = {
+			isa = PBXGroup;
+			children = (
+				BF0946C02029DC8D002F76A6 /* Info.plist */,
+				BF0946BF2029DC8C002F76A6 /* LimeCore.podspec */,
+			);
+			path = Deploy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,7 +360,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = LimeCore/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.getlime.lib.LimeCore;
@@ -369,7 +381,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = LimeCore/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.getlime.lib.LimeCore;
@@ -391,7 +403,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = LimeCore/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.getlime.lib.LimeCore;
@@ -414,7 +426,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = LimeCore/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.getlime.lib.LimeCore;
