@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'LimeCore'
-  s.version = '0.9.2'
+  s.version = '0.9.3'
   # Metadata
   s.license = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
   s.summary = 'Supporting classes developed and used by Lime - HighTech Solution'
