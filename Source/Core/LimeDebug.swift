@@ -43,5 +43,6 @@ public class LimeDebug {
             Swift.print(message)
         #endif
     }
-    
 }
+
+internal typealias D = LimeDebug
