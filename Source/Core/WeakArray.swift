@@ -54,9 +54,16 @@ public extension Array where Element: WeakReference {
     }
 
     /// Returns strong referenced array with all still valid stored objects
-    /// Note that complexity of this operation is O(2N)
+    /// Note that complexity of this operation is O(N)
     public var allStrongReferences: [Element.T] {
-        return self.filter { !$0.isEmpty } .map { $0.instance! }
+        var result = [Element.T]()
+        result.reserveCapacity(self.count)
+        self.forEach { (weakRef) in
+            if let strongRef = weakRef.instance {
+                result.append(strongRef)
+            }
+        }
+        return result
     }
     
     /// Removes all empty WeakReference elements from the array.
@@ -77,6 +84,13 @@ public extension Array where Element: WeakReference {
     /// Append one element which is WeakReference.T type.
     public mutating func append(_ newElement: Element.T) {
         self.append(Element(newElement))
+    }
+    
+    /// Removes one element which is WeakReference.T type.
+    public mutating func remove(_ element: Element.T) {
+        if let index = self.index(where: { $0.instance === element }) {
+            self.remove(at: index)
+        }
     }
 }
 
