@@ -32,7 +32,7 @@ public class LimeConfig: NSObject {
     
     var mutableConfigs = [String:MutableConfig]()
 
-    var initialRegistration = false
+    var initialRegistration = true
     
     internal override init() {
     }
