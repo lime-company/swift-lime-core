@@ -29,18 +29,27 @@ import Foundation
 /// ```
 public class LimeDebug {
     
+    /// If false, then messages logged with `LimeDebug.print()` are silently ignored.
+    public static var isEnabled = false
+    
     /// Prints simple message to the debug console.
     public static func print(_ message: String) {
         #if DEBUG
-            Swift.print(message)
+            if isEnabled {
+                Swift.print("[LimeDebug] \(message)")
+            }
+        #endif
+    }
+
+    public static func warning(_ message: String) {
+        #if DEBUG
+            Swift.print("[LimeDebug] WARNING: \(message)")
         #endif
     }
     
-    /// Prints formatted message to the debug console.
-    public static func print(_ format: String, _ args: CVarArg...) {
+    public static func error(_ message: String) {
         #if DEBUG
-            let message = NSString(format: format, arguments: getVaList(args)) as String
-            Swift.print(message)
+            Swift.print("[LimeDebug] ERROR: \(message)")
         #endif
     }
 }
