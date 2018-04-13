@@ -23,8 +23,9 @@ public protocol WeakReference: class {
     ///  T is a generic type associated with this protocol
     associatedtype T where T: AnyObject
     
-    /// An actual weak reference to the object
-    weak var instance: T? { get }
+    /// An actual reference to the object. The implementation
+    /// must make weak reference to the object.
+    var instance: T? { get }
     
     /// Contains true if instance is equal to nil
     var isEmpty: Bool { get }
