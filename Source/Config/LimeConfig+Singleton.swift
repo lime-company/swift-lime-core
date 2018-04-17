@@ -20,7 +20,7 @@ public extension LimeConfig {
     
     /// Returns the shared default object.
     /// Before accessing this singleton object, you have to setup
-    /// `LimeConfig.registerConfigDomains` otherwise
+    /// `LimeConfig.registerConfigDomains` otherwise the fatal error is raised.
     public static let shared = LimeConfig.sharedConfig()
     
     public static var registerConfigDomains: ((LimeConfig)->Void)?

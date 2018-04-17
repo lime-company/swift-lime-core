@@ -19,22 +19,20 @@ import Foundation
 public protocol ImmutableConfig {
 }
 
-public protocol MutableConfig {
+public protocol MutableConfig: ImmutableConfig {
     func makeImmutable() -> ImmutableConfig
 }
 
-
-public class LimeConfig: NSObject {
+public class LimeConfig {
 
     let lock = LimeCore.Lock()
 
-    var immutableConfigs = [String:ImmutableConfig]()
-    
-    var mutableConfigs = [String:MutableConfig]()
+    var configs = [String:ImmutableConfig]()
+    var mutableConfigs = [(domain: String, config: MutableConfig)]()
 
     var initialRegistration = true
     
-    internal override init() {
+    internal init() {
     }
 }
 
@@ -42,13 +40,21 @@ public class LimeConfig: NSObject {
 
 public extension LimeConfig {
     
+    /// Returns copy of confing object for requested domain or nil if there's no such domain registered.
     public func config<T: ImmutableConfig>(for domain: String) -> T? {
         return lock.synchronized { () -> T? in
-            if let c = self.immutableConfigs[domain] as? T {
-                return c;
+            guard let c = self.configs[domain] as? T else {
+                D.error("LimeConfig: Domain '\(domain)' is not registered.")
+                return nil
             }
-            D.print("LimeConfig: Domain '\(domain)' is not registered.")
-            return nil
+            return c;
+        }
+    }
+    
+    /// Returns true if config is registered
+    public func contains(domain: String) -> Bool {
+        return lock.synchronized { () -> Bool in
+            return self.configs[domain] != nil
         }
     }
 }
@@ -58,48 +64,83 @@ public extension LimeConfig {
 // MARK: - Mutable access -
 
 public extension LimeConfig {
-
-    public func contains(domain: String) -> Bool {
-        return lock.synchronized { () -> Bool in
-            return self.mutableConfigs[domain] != nil
+    
+    /// Registers a new config domain.
+    public func register<T: ImmutableConfig>(_ immutableObject: T, for domain: String) -> Void {
+        return lock.synchronized { () in
+            if self.initialRegistration == false {
+                D.error("LimeConfig: Cannot register additional domain '\(domain)'.")
+                return
+            }
+            if let cfg = self.configs[domain] {
+                if cfg is T {
+                    // You don't need to register the same config for twice
+                    D.warning("LimeConfig: Domain '\(domain)' is already registered for this type.")
+                } else {
+                    // You're registering different object type for the same domain
+                    D.error("LimeConfig: Domain '\(domain)' is already registered for another object type.")
+                }
+                return
+            }
+            self.configs[domain] = immutableObject
         }
     }
     
-    public func register<MT: MutableConfig>(_ mutableObject: MT, for domain: String) -> MT? {
-        return lock.synchronized { () -> MT? in
+    /// Registers a new config domain.
+    public func register<T: MutableConfig>(_ mutableObject: T, for domain: String) -> T? {
+        return lock.synchronized { () in
             if self.initialRegistration == false {
-                D.print("LimeConfig: Error: Cannot register additional domain '\(domain)'.")
+                D.error("LimeConfig: Cannot register additional domain '\(domain)'.")
                 return nil
             }
-            if let cfg = self.mutableConfigs[domain] {
-                if let typedCfg = cfg as? MT {
+            if let cfg = self.configs[domain] {
+                if let typedCfg = cfg as? T {
                     // You don't need to register the same config for twice
-                    D.print("LimeConfig: Warning: Domain '\(domain)' is already registered for this type.")
+                    D.warning("LimeConfig: Domain '\(domain)' is already registered for this type.")
                     return typedCfg
                 }
-                D.print("LimeConfig: Error: Domain '\(domain)' is already registered for another object type.")
+                // You're registering different object type for the same domain
+                D.error("LimeConfig: Domain '\(domain)' is already registered for another object type.")
                 return nil
             }
-            self.mutableConfigs[domain] = mutableObject
+            self.mutableConfigs.append((domain, mutableObject))
+            self.configs[domain] = mutableObject.makeImmutable()
             return mutableObject
         }
     }
     
-    public func update<MT: MutableConfig>(domain: String, updateBlock: (MT)->Void) {
+    /// Updates immutable config for given domain. The `update` closure gets current config object and must return new one.
+    public func update<T: ImmutableConfig>(domain: String, update: (T)->T) {
         lock.synchronized { () in
-            if let config = self.mutableConfigs[domain] as? MT {
-                updateBlock(config)
-                self.immutableConfigs[domain] = config.makeImmutable()
+            if let current = self.configs[domain] as? T {
+                self.configs[domain] = update(current)
             } else {
-                D.print("LimeConfig: Domain '\(domain)' is not registered and therefore cannot be updated.")
+                D.error("LimeConfig: Domain '\(domain) is not registered and therefore config cannot be updated.")
+            }
+        }
+    }
+
+    /// Updates mutable config for given domain. The `update` closure gets current mutable object, which can be modified
+    /// in the scope of closure (e.g. you should not keep reference to that object for later modifications).
+    public func update<T: MutableConfig>(domain: String, update: (T)->Void) {
+        lock.synchronized { () in
+            if let current = self.configs[domain] as? T {
+                update(current)
+                self.configs[domain] = current.makeImmutable()
+            } else {
+                D.error("LimeConfig: Domain '\(domain) is not registered and therefore config cannot be updated.")
             }
         }
     }
     
+    /// Internal function closes opportunity for initial configs registration.
     internal func closeInitialRegistration() {
         lock.synchronized {
             self.initialRegistration = false
-            self.immutableConfigs = self.mutableConfigs.mapValues { $0.makeImmutable() }
+            self.mutableConfigs.forEach { (cfg) in
+                self.configs[cfg.domain] = cfg.config.makeImmutable()
+            }
+            self.mutableConfigs.removeAll()
         }
     }
 }

@@ -76,9 +76,9 @@ public protocol LocalizationConfiguration: ImmutableConfig {
 public class MutableLocalizationConfiguration: MutableConfig, LocalizationConfiguration {
     
     public var defaultLanguage: String              = "en"
-    public var languageMappings: [String:String]?
-    public var preferedLanguages: [String]?
-    public var stringTables: [StringTable]    = [ StringTable.defaultTable() ]
+    public var languageMappings: [String:String]?   = nil
+    public var preferedLanguages: [String]?         = nil
+    public var stringTables: [StringTable]          = [ StringTable.defaultTable() ]
     public var missingLocalizationPrefix: String    = "### "
     public var settingsKey: String                  = "LimeLocalization.SelectedLanguage"
     public var prefixForLocalizedLanguageNames      = "language."
@@ -99,7 +99,7 @@ public class MutableLocalizationConfiguration: MutableConfig, LocalizationConfig
     }
     
     public func makeImmutable() -> ImmutableConfig {
-        return MutableLocalizationConfiguration(copyFrom: self) as LocalizationConfiguration
+        return self
     }
 }
 
