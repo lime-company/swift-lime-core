@@ -69,19 +69,23 @@ public protocol LocalizationConfiguration: ImmutableConfig {
     ///    "language.cs" = "Čeština";
     ///    "language.es" = "Español";
     var prefixForLocalizedLanguageNames: String { get }
+    
+    /// You can define transformation which affects 
+    var transformation: LocalizationTransformation? { get }
 }
 
 /// The `MutableLocalizationConfiguration` object implements `LocalizationConfiguration` protocol
 /// and also conforms to `LimeConfig.MutableConfig` protocol.
 public class MutableLocalizationConfiguration: MutableConfig, LocalizationConfiguration {
     
-    public var defaultLanguage: String              = "en"
-    public var languageMappings: [String:String]?   = nil
-    public var preferedLanguages: [String]?         = nil
-    public var stringTables: [StringTable]          = [ StringTable.defaultTable() ]
-    public var missingLocalizationPrefix: String    = "### "
-    public var settingsKey: String                  = "LimeLocalization.SelectedLanguage"
-    public var prefixForLocalizedLanguageNames      = "language."
+    public var defaultLanguage: String                      = "en"
+    public var languageMappings: [String:String]?           = nil
+    public var preferedLanguages: [String]?                 = nil
+    public var stringTables: [StringTable]                  = [ StringTable.defaultTable() ]
+    public var missingLocalizationPrefix: String            = "### "
+    public var settingsKey: String                          = "LimeLocalization.SelectedLanguage"
+    public var prefixForLocalizedLanguageNames              = "language."
+    public var transformation: LocalizationTransformation?  = nil
     
     /// Public constructor
     public init() {
@@ -96,6 +100,7 @@ public class MutableLocalizationConfiguration: MutableConfig, LocalizationConfig
         self.missingLocalizationPrefix = copyFrom.missingLocalizationPrefix
         self.settingsKey = copyFrom.settingsKey
         self.prefixForLocalizedLanguageNames = copyFrom.prefixForLocalizedLanguageNames
+        self.transformation = copyFrom.transformation
     }
     
     public func makeImmutable() -> ImmutableConfig {

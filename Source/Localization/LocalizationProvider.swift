@@ -221,6 +221,11 @@ fileprivate extension LocalizationProvider {
             }
         }
         
+        // Map & Reduce
+        if let transformation = privateConfiguration.transformation {
+            translations = transform(table: translations, with: transformation)
+        }
+        
         // Commit change if succeeeded
         if success {
             reportChange = self.privateAppliedLanguage != effective
@@ -240,6 +245,29 @@ fileprivate extension LocalizationProvider {
             D.print("LocalizationProvider: The language was not changed, due to loading error.")
         }
         return reportChange
+    }
+    
+    /// Performs transformation operations on the table
+    func transform(table: TranslationTable, with transformation: LocalizationTransformation) -> TranslationTable {
+        // Prepare new dictionary
+        var newTable: TranslationTable = [:]
+        newTable.reserveCapacity(table.count)
+        //
+        table.forEach { (key, value) in
+            let operation = transformation.transform(key: key)
+            switch operation {
+            case .keep:
+                newTable[key] = value
+            case .erase:
+                break
+            case .moveTo(let newKey):
+                newTable[newKey] = value
+            case .copyTo(let newKey):
+                newTable[key] = value
+                newTable[newKey] = value
+            }
+        }
+        return newTable
     }
     
     /// Applies a new configuration to the LocalizationProvider.

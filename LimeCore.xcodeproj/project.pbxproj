@@ -15,6 +15,7 @@
 		BF08C1F82024526000EC2529 /* WeakArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF08C1F02024525200EC2529 /* WeakArray.swift */; };
 		BF08C1FD202458A000EC2529 /* LimeCore.h in Headers */ = {isa = PBXBuildFile; fileRef = BF08C1FB202458A000EC2529 /* LimeCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF08C200202458B500EC2529 /* LimeCore.h in Headers */ = {isa = PBXBuildFile; fileRef = BF08C1FB202458A000EC2529 /* LimeCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BF2BECFC208A0E7A00E5663A /* LocalizationTransformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2BECFB208A0E7A00E5663A /* LocalizationTransformation.swift */; };
 		BF8CF40E2031EE16002A6B6E /* LimeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF40B2031EE16002A6B6E /* LimeConfig.swift */; };
 		BF8CF40F2031EE16002A6B6E /* LimeConfig+Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF40C2031EE16002A6B6E /* LimeConfig+Singleton.swift */; };
 		BF8CF4102031EE16002A6B6E /* LimeConfig+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF40D2031EE16002A6B6E /* LimeConfig+Load.swift */; };
@@ -43,6 +44,7 @@
 		BF08C25220247F8400EC2529 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BF0946BF2029DC8C002F76A6 /* LimeCore.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LimeCore.podspec; sourceTree = "<group>"; };
 		BF0946C02029DC8D002F76A6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF2BECFB208A0E7A00E5663A /* LocalizationTransformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationTransformation.swift; sourceTree = "<group>"; };
 		BF8CF40B2031EE16002A6B6E /* LimeConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LimeConfig.swift; sourceTree = "<group>"; };
 		BF8CF40C2031EE16002A6B6E /* LimeConfig+Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LimeConfig+Singleton.swift"; sourceTree = "<group>"; };
 		BF8CF40D2031EE16002A6B6E /* LimeConfig+Load.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LimeConfig+Load.swift"; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				BF8CF4122031EEE0002A6B6E /* LocalizationConfiguration.swift */,
+				BF2BECFB208A0E7A00E5663A /* LocalizationTransformation.swift */,
 				BF8CF4132031EEE0002A6B6E /* LocalizationHelper.swift */,
 				BF8CF4112031EEE0002A6B6E /* LocalizationProvider.swift */,
 				BF8CF4142031EEE0002A6B6E /* StringTable.swift */,
@@ -279,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF8CF40E2031EE16002A6B6E /* LimeConfig.swift in Sources */,
+				BF2BECFC208A0E7A00E5663A /* LocalizationTransformation.swift in Sources */,
 				BF08C1F42024525200EC2529 /* WeakArray.swift in Sources */,
 				BF8CF4172031EEE0002A6B6E /* LocalizationHelper.swift in Sources */,
 				BF8CF4182031EEE0002A6B6E /* StringTable.swift in Sources */,
