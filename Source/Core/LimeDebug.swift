@@ -29,27 +29,45 @@ import Foundation
 /// ```
 public class LimeDebug {
     
-    /// If false, then messages logged with `LimeDebug.print()` are silently ignored.
-    public static var isEnabled = false
+    /// Defines verbose level for this simple debugging facility.
+    public enum VerboseLevel: Int {
+        /// Silences all messages.
+        case off = 0
+        /// Only errors will be printed to the debug console.
+        case errors = 1
+        /// Errors and warnings will be printed to the debug console.
+        case warnings = 2
+        /// All messages will be printed to the debug console.
+        case all = 3
+    }
+    
+    /// Current verbose level. Note that value is ignored for non-DEBUG builds.
+    public static var verboseLevel: VerboseLevel = .warnings
     
     /// Prints simple message to the debug console.
-    public static func print(_ message: String) {
+    public static func print(_ message: @autoclosure ()->String) {
         #if DEBUG
-            if isEnabled {
-                Swift.print("[LimeDebug] \(message)")
-            }
+        if verboseLevel == .all {
+            Swift.print("[LimeDebug] \(message())")
+        }
         #endif
     }
 
-    public static func warning(_ message: String) {
+    /// Prints warning message to the debug console.
+    public static func warning(_ message: @autoclosure ()->String) {
         #if DEBUG
-            Swift.print("[LimeDebug] WARNING: \(message)")
+        if verboseLevel.rawValue >= VerboseLevel.warnings.rawValue {
+            Swift.print("[LimeDebug] WARNING: \(message())")
+        }
         #endif
     }
     
-    public static func error(_ message: String) {
+    /// Prints error message to the debug console.
+    public static func error(_ message: @autoclosure ()->String) {
         #if DEBUG
-            Swift.print("[LimeDebug] ERROR: \(message)")
+        if verboseLevel != .off {
+            Swift.print("[LimeDebug] ERROR: \(message())")
+        }
         #endif
     }
 }

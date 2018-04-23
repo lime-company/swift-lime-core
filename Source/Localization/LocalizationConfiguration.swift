@@ -70,7 +70,8 @@ public protocol LocalizationConfiguration: ImmutableConfig {
     ///    "language.es" = "Español";
     var prefixForLocalizedLanguageNames: String { get }
     
-    /// You can define transformation which affects final content of loaded string tables.
+    /// You can define transformation applied to the final localization dictionary after is loaded
+    /// into the memory.
     var transformation: LocalizationTransformation? { get }
 }
 
