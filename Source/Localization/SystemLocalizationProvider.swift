@@ -22,12 +22,15 @@ import Foundation
 /// The best example is our [LimeAuth](https://github.com/lime-company/swift-lime-auth) library.
 public class SystemLocalizationProvider: GenericLocalizationProvider {
   
+    /// Name of string table
     private let tableName: String?
+    
+    /// Bundle in which is the string table stored
     private let bundle: Bundle
     
     /// Initializes the provider.
     /// - parameter tableName: Name of the string table.
-    /// - parameter bundle: Bundle where the table is stored. By default, `Bundle.main` is used
+    /// - parameter bundle: Bundle in which is the string table stored. By default, `Bundle.main` is used
     public init(tableName: String? = nil, bundle: Bundle = .main) {
         self.tableName = tableName
         self.bundle = bundle

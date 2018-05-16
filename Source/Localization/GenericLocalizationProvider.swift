@@ -18,7 +18,13 @@ import Foundation
 
 /// The `GenericLocalizationProvider` protocol defines simple interface
 /// which provides strings localizations.
-public protocol GenericLocalizationProvider {
+///
+/// `LimeCore` provides two different classes implementing this protocol:
+/// - `SystemLocalizationProvider` - implements localization with using `NSLocalizedString`. The behavior
+///    of this provides is the same as `NSLocalizedString()` function.
+/// - `LocalizationProvider` - implements advanced localization, which allows for example dynamic
+///    language change in the runtime.
+public protocol GenericLocalizationProvider: class {
     
     /// Returns localized string for given key.
     func localizedString(_ key: String) -> String
