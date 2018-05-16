@@ -104,7 +104,7 @@ public class LocalizationProvider {
 }
 
 /// A public interface
-public extension LocalizationProvider {
+extension LocalizationProvider: GenericLocalizationProvider {
 
     /// Returns localized string for given key.
     /// You can use this method or String extension, which provides additional useful methods.

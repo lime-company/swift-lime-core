@@ -16,6 +16,8 @@
 		BF08C1FD202458A000EC2529 /* LimeCore.h in Headers */ = {isa = PBXBuildFile; fileRef = BF08C1FB202458A000EC2529 /* LimeCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF08C200202458B500EC2529 /* LimeCore.h in Headers */ = {isa = PBXBuildFile; fileRef = BF08C1FB202458A000EC2529 /* LimeCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF2BECFC208A0E7A00E5663A /* LocalizationTransformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2BECFB208A0E7A00E5663A /* LocalizationTransformation.swift */; };
+		BF87E18C20AC7340006B28D4 /* GenericLocalizationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87E18B20AC7340006B28D4 /* GenericLocalizationProvider.swift */; };
+		BF87E18E20AC7523006B28D4 /* SystemLocalizationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87E18D20AC7523006B28D4 /* SystemLocalizationProvider.swift */; };
 		BF8CF40E2031EE16002A6B6E /* LimeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF40B2031EE16002A6B6E /* LimeConfig.swift */; };
 		BF8CF40F2031EE16002A6B6E /* LimeConfig+Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF40C2031EE16002A6B6E /* LimeConfig+Singleton.swift */; };
 		BF8CF4102031EE16002A6B6E /* LimeConfig+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF40D2031EE16002A6B6E /* LimeConfig+Load.swift */; };
@@ -45,6 +47,8 @@
 		BF0946BF2029DC8C002F76A6 /* LimeCore.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LimeCore.podspec; sourceTree = "<group>"; };
 		BF0946C02029DC8D002F76A6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF2BECFB208A0E7A00E5663A /* LocalizationTransformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationTransformation.swift; sourceTree = "<group>"; };
+		BF87E18B20AC7340006B28D4 /* GenericLocalizationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericLocalizationProvider.swift; sourceTree = "<group>"; };
+		BF87E18D20AC7523006B28D4 /* SystemLocalizationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemLocalizationProvider.swift; sourceTree = "<group>"; };
 		BF8CF40B2031EE16002A6B6E /* LimeConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LimeConfig.swift; sourceTree = "<group>"; };
 		BF8CF40C2031EE16002A6B6E /* LimeConfig+Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LimeConfig+Singleton.swift"; sourceTree = "<group>"; };
 		BF8CF40D2031EE16002A6B6E /* LimeConfig+Load.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LimeConfig+Load.swift"; sourceTree = "<group>"; };
@@ -147,6 +151,8 @@
 		BF8CF40A2031EDE9002A6B6E /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				BF87E18B20AC7340006B28D4 /* GenericLocalizationProvider.swift */,
+				BF87E18D20AC7523006B28D4 /* SystemLocalizationProvider.swift */,
 				BF8CF4122031EEE0002A6B6E /* LocalizationConfiguration.swift */,
 				BF2BECFB208A0E7A00E5663A /* LocalizationTransformation.swift */,
 				BF8CF4132031EEE0002A6B6E /* LocalizationHelper.swift */,
@@ -289,9 +295,11 @@
 				BF8CF40F2031EE16002A6B6E /* LimeConfig+Singleton.swift in Sources */,
 				BF8CF4162031EEE0002A6B6E /* LocalizationConfiguration.swift in Sources */,
 				BF08C1F32024525200EC2529 /* Lock.swift in Sources */,
+				BF87E18E20AC7523006B28D4 /* SystemLocalizationProvider.swift in Sources */,
 				BF8CF4152031EEE0002A6B6E /* LocalizationProvider.swift in Sources */,
 				BF8CF4102031EE16002A6B6E /* LimeConfig+Load.swift in Sources */,
 				BF08C1F12024525200EC2529 /* LimeDebug.swift in Sources */,
+				BF87E18C20AC7340006B28D4 /* GenericLocalizationProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
