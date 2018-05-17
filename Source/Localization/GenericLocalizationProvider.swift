@@ -28,4 +28,17 @@ public protocol GenericLocalizationProvider: class {
     
     /// Returns localized string for given key.
     func localizedString(_ key: String) -> String
+    
+    /// Returns localized string for given formatted key.
+    /// You can use formatting just like for `NSString(format: arguments:...)` method.
+    func localizedFormattedString(_ formattedKey: String, _ arguments: CVarArg...) -> String
+}
+
+public extension GenericLocalizationProvider {
+    
+    /// Default implementation for `localizedFormattedString()`
+    public func localizedFormattedString(_ formattedKey: String, _ arguments: CVarArg...) -> String {
+        let localizedKey = localizedString(formattedKey)
+        return NSString(format: localizedKey, arguments: getVaList(arguments)) as String
+    }
 }
