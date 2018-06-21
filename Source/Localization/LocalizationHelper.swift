@@ -38,8 +38,8 @@ public class LocalizationHelper {
     /// Object constructor
     public init() {
         // Register for notifications about language change
-        NotificationCenter.default.addObserver(forName: LocalizationProvider.didChangeLanguage, object: nil, queue: .main) { (notification) in
-            self.didChangeLanguage(notification: notification)
+        NotificationCenter.default.addObserver(forName: LocalizationProvider.didChangeLanguage, object: nil, queue: .main) { [weak self] (notification) in
+            self?.didChangeLanguage(notification: notification)
         }
     }
     
