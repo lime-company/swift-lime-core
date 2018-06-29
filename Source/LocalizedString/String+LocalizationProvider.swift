@@ -37,7 +37,8 @@ public extension String {
     /// ## Warning
     /// This method is by default not compiled into the LimeCore framework, but you can import it into your project with
     /// using appropriate cocoapod: `pod 'LimeCore/LocalizedString'`
-    public func localized(_ args: CVarArg...) -> String {
-        return LocalizationProvider.shared.localizedFormattedString(self, args)
+    public func localized(_ arguments: CVarArg...) -> String {
+        let localizedSelf = LocalizationProvider.shared.localizedString(self)
+        return withVaList(arguments) { NSString(format: localizedSelf, arguments: $0) } as String
     }
 }
