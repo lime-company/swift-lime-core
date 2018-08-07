@@ -41,7 +41,7 @@ public class LocalizationHelper {
     
     /// The operation queue to which notifcation processing should be added.
     /// If null, then the "main" queue is used.
-    private var queue: OperationQueue
+    private let queue: OperationQueue
     
     /// Object constructor. You can provide the optional operation queue where the language change will be processed.
     /// If no queue is provided, then the "main" queue is used.
