@@ -33,23 +33,36 @@ public protocol Localizable: class {
 public class LocalizationHelper {
     
     /// Internal weak reference to Localizable target object
-    private(set) weak var targetForLocalization: Localizable?
+    private weak var targetForLocalization: Localizable?
     
-    /// Object constructor
-    public init() {
-        // Register for notifications about language change
-        NotificationCenter.default.addObserver(forName: LocalizationProvider.didChangeLanguage, object: nil, queue: .main) { [weak self] (notification) in
-            self?.didChangeLanguage(notification: notification)
-        }
+    /// Contains observer object listening for `didChangeLanguage` notification. The variable is null if
+    /// no target is attached to the helper.
+    private var languageChangeObserver: AnyObject?
+    
+    /// The operation queue to which notifcation processing should be added.
+    /// If null, then the "main" queue is used.
+    private var queue: OperationQueue
+    
+    /// Object constructor. You can provide the optional operation queue where the language change will be processed.
+    /// If no queue is provided, then the "main" queue is used.
+    public init(queue: OperationQueue = .main) {
+        self.queue = queue
     }
     
     deinit {
         // Remove observer from NotificationCenter
-        NotificationCenter.default.removeObserver(self)
+        if let observer = languageChangeObserver {
+            NotificationCenter.default.removeObserver(observer)
+        }
     }
     
     /// Attach a Localizable object to the helper. The method automatically calls `target.updateLocalizedStrings()`
     public func attach(target: Localizable) {
+        if languageChangeObserver == nil {
+            languageChangeObserver = NotificationCenter.default.addObserver(forName: LocalizationProvider.didChangeLanguage, object: nil, queue: queue) { [weak self] (notification) in
+                self?.didChangeLanguage(notification: notification)
+            }
+        }
         targetForLocalization = target
         target.updateLocalizedStrings()
     }
