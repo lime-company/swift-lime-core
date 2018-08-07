@@ -32,6 +32,8 @@
 		BF8CF4212031F4D9002A6B6E /* LocalizationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF4132031EEE0002A6B6E /* LocalizationHelper.swift */; };
 		BF8CF4222031F4D9002A6B6E /* LocalizationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF4112031EEE0002A6B6E /* LocalizationProvider.swift */; };
 		BF8CF4232031F4D9002A6B6E /* StringTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF4142031EEE0002A6B6E /* StringTable.swift */; };
+		BFD27D8A2119E3AA0020ABA4 /* LocalizationTransformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2BECFB208A0E7A00E5663A /* LocalizationTransformation.swift */; };
+		BFD27D8B2119E3B20020ABA4 /* GenericLocalizationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87E18B20AC7340006B28D4 /* GenericLocalizationProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -308,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF08C1F82024526000EC2529 /* WeakArray.swift in Sources */,
+				BFD27D8A2119E3AA0020ABA4 /* LocalizationTransformation.swift in Sources */,
 				BF08C1F72024525D00EC2529 /* Lock.swift in Sources */,
 				BF8CF4202031F4D9002A6B6E /* LocalizationConfiguration.swift in Sources */,
 				BF8CF41F2031EF3E002A6B6E /* LimeConfig+Load.swift in Sources */,
@@ -317,6 +320,7 @@
 				BF8CF4232031F4D9002A6B6E /* StringTable.swift in Sources */,
 				BF8CF41D2031EF3E002A6B6E /* LimeConfig.swift in Sources */,
 				BF08C1F52024525800EC2529 /* LimeDebug.swift in Sources */,
+				BFD27D8B2119E3B20020ABA4 /* GenericLocalizationProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
