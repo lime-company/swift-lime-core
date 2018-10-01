@@ -70,6 +70,28 @@ public class LimeDebug {
         }
         #endif
     }
+    
+    #if DEBUG
+    /// Unconditionally prints a given message and stops execution
+    ///
+    /// - Parameters:
+    ///   - message: The string to print. The default is an empty string.
+    ///   - file: The file name to print with message. The default is file path where fatalError is called for DEBUG configuration, empty string for other
+    ///   - line: The line number to print along with message. The default is the line number where fatalError is called.
+    public static func fatalError(_ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) -> Never {
+        Swift.fatalError(message, file: file, line: line)
+    }
+    #else
+    /// Unconditionally prints a given message and stops execution
+    ///
+    /// - Parameters:
+    ///   - message: The string to print. The default is an empty string.
+    ///   - file: The file name to print with message. The default is file path where fatalError is called for DEBUG configuration, emptry string for other
+    ///   - line: The line number to print along with message. The default is the line number where fatalError is called.
+    public static func fatalError(_ message: @autoclosure () -> String = "", file: StaticString = "", line: UInt = #line) -> Never {
+        Swift.fatalError(message, file: file, line: line)
+    }
+    #endif
 }
 
 internal typealias D = LimeDebug
