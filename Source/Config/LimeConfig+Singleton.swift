@@ -30,7 +30,7 @@ public extension LimeConfig {
         let config = LimeConfig()
         // Call registration closure
         guard let registrationBlock = registerConfigDomains else {
-            fatalError("LimeConfig.onRegisterDomains is not set.")
+            LimeDebug.fatalError("LimeConfig.onRegisterDomains is not set.")
         }
         
         // Call & cleanup registration block
