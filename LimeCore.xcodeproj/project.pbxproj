@@ -464,7 +464,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.getlime.lib.LimeCore;
 				PRODUCT_NAME = LimeCore;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -485,7 +485,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.getlime.lib.LimeCore;
 				PRODUCT_NAME = LimeCore;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -508,7 +508,7 @@
 				PRODUCT_NAME = LimeCore;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 			};
 			name = Debug;
@@ -531,7 +531,7 @@
 				PRODUCT_NAME = LimeCore;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 			};
 			name = Release;
