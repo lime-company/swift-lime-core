@@ -3,11 +3,11 @@ Pod::Spec.new do |s|
   s.version = '1.1.3'
   # Metadata
   s.license = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
-  s.summary = 'Supporting classes developed and used by Lime - HighTech Solutions'
-  s.homepage = 'https://github.com/lime-company/swift-lime-core'
-  s.social_media_url = 'https://twitter.com/lime_company'
-  s.author = { 'Lime - HighTech Solutions s.r.o.' => 'support@lime-company.eu' }
-  s.source = { :git => 'https://github.com/lime-company/swift-lime-core.git', :tag => s.version }
+  s.summary = 'Supporting classes developed and used by Wultra'
+  s.homepage = 'https://github.com/wultra/swift-lime-core'
+  s.social_media_url = 'https://twitter.com/wultra'
+  s.author = { 'Wultra s.r.o.' => 'hello@wultra.com' }
+  s.source = { :git => 'https://github.com/wultra/swift-lime-core.git', :tag => s.version }
   # Deployment targets
   s.swift_version = '4.2'
   s.ios.deployment_target = '8.0'

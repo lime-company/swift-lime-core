@@ -1,5 +1,5 @@
 //
-// Copyright 2018 Lime - HighTech Solutions s.r.o.
+// Copyright 2018 Wultra s.r.o.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ import Foundation
 /// The `SystemLocalizationProvider` class wraps `NSLocalizedString()` into interface conforming to
 /// `GenericLocalizationProvider`. The class is typically used as a default provider in Lime's public
 /// open source libraries, where we don't want to force usage of our more feature `LocalizationProvider`.
-/// The best example is our [LimeAuth](https://github.com/lime-company/swift-lime-auth) library.
+/// The best example is our [LimeAuth](https://github.com/wultra/swift-lime-auth) library.
 public class SystemLocalizationProvider: GenericLocalizationProvider {
   
     /// Name of string table
