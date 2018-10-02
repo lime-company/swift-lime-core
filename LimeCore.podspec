@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.summary = 'Supporting classes developed and used by Wultra'
   s.homepage = 'https://github.com/wultra/swift-lime-core'
   s.social_media_url = 'https://twitter.com/wultra'
-  s.author = { 'Wultra s.r.o.' => 'hello@wultra.com' }
+  s.author = { 'Wultra s.r.o.' => 'support@wultra.com' }
   s.source = { :git => 'https://github.com/wultra/swift-lime-core.git', :tag => s.version }
   # Deployment targets
   s.swift_version = '4.2'
