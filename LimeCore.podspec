@@ -23,22 +23,10 @@ Pod::Spec.new do |s|
     sub.source_files = 'Source/Core/*.swift'
   end
   
-  # 'Config' subspec
-  s.subspec 'Config' do |sub|
-    sub.source_files = 'Source/Config/*.swift'
-    sub.dependency 'LimeCore/Core'
-  end
-
   # 'Localization' subspec
   s.subspec 'Localization' do |sub|
     sub.source_files = 'Source/Localization/*.swift'
-    sub.dependency 'LimeCore/Config'
-  end
-  
-  # 'LocalizedString' subspec
-  s.subspec 'LocalizedString' do |sub|
-    sub.source_files = 'Source/LocalizedString/*.swift'
-    sub.dependency 'LimeCore/Localization'
+    sub.dependency 'LimeCore/Core'
   end
 
 end

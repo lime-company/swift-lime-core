@@ -27,9 +27,6 @@ public class LocalizationProvider {
     /// A notification fired when the language is changed
     public static let didChangeLanguage = Notification.Name(rawValue: "LocalizationProvider_didChangeLanguage")
     
-    /// LocalizationProvider's singleton
-    public static let shared = LocalizationProvider(configuration: LimeConfig.shared.localization)
-    
     /// Thread synchronization object
     fileprivate let lock = Lock()
     
@@ -53,7 +50,7 @@ public class LocalizationProvider {
     fileprivate var privateAppliedLanguage: String?
     
     /// Returns list of identifiers for all available languages. The value is updated when the configuration
-    /// is applied. You can affect order of languages by changing `LocalizationConfiguration.preferredLanguages`.
+    /// is applied. You can affect order of languages by changing `LocalizationConfigurationType.preferredLanguages`.
     public var availableLanguages: [String] {
         return lock.synchronized { return [String](privateAvailableLanguages) }
     }
@@ -72,12 +69,12 @@ public class LocalizationProvider {
     
     
     /// Returns current localization configuration
-    public var configuration: LocalizationConfiguration {
+    public var configuration: LocalizationConfigurationType {
         return lock.synchronized {
             return self.privateConfiguration
         }
     }
-    fileprivate var privateConfiguration: LocalizationConfiguration
+    fileprivate var privateConfiguration: LocalizationConfigurationType
     
     /// An internal type for string table (e.g. key => localization dictionary)
     fileprivate typealias TranslationTable = [String:String]
@@ -93,8 +90,7 @@ public class LocalizationProvider {
     
     // MARK: - Initialization
     
-    /// Private constructor
-    public init(configuration: LocalizationConfiguration) {
+    public init(configuration: LocalizationConfigurationType) {
         self.privateConfiguration = configuration
         let fireMessage = self.applyConfiguration(config: self.privateConfiguration)
         if fireMessage {
@@ -119,7 +115,7 @@ extension LocalizationProvider: GenericLocalizationProvider {
     
     /// Applies a new configuration to the provider. This may lead to language change,
     /// if applied configuration doesn't support current language
-    public func apply(configuration: LocalizationConfiguration) {
+    public func apply(configuration: LocalizationConfigurationType) {
         let fireMessage = lock.synchronized { () in
             return applyConfiguration(config: configuration)
         }
@@ -272,7 +268,7 @@ fileprivate extension LocalizationProvider {
     
     /// Applies a new configuration to the LocalizationProvider.
     /// Returns true, if the language has been changed and this change must be reported via the notification.
-    func applyConfiguration(config: LocalizationConfiguration) -> Bool {
+    func applyConfiguration(config: LocalizationConfigurationType) -> Bool {
         // at first, try to load all tables and build a set with supported languages
         let allTables				= loadAllStringTables(tables: config.stringTables, defaultLanguage: config.defaultLanguage)
         let availableLanguages		= buildAvailableLanguagesSet(availableTables: allTables)

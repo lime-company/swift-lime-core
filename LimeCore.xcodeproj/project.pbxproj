@@ -19,16 +19,10 @@
 		BF7DD3F42141844200766D03 /* SystemLocalizationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87E18D20AC7523006B28D4 /* SystemLocalizationProvider.swift */; };
 		BF87E18C20AC7340006B28D4 /* GenericLocalizationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87E18B20AC7340006B28D4 /* GenericLocalizationProvider.swift */; };
 		BF87E18E20AC7523006B28D4 /* SystemLocalizationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87E18D20AC7523006B28D4 /* SystemLocalizationProvider.swift */; };
-		BF8CF40E2031EE16002A6B6E /* LimeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF40B2031EE16002A6B6E /* LimeConfig.swift */; };
-		BF8CF40F2031EE16002A6B6E /* LimeConfig+Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF40C2031EE16002A6B6E /* LimeConfig+Singleton.swift */; };
-		BF8CF4102031EE16002A6B6E /* LimeConfig+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF40D2031EE16002A6B6E /* LimeConfig+Load.swift */; };
 		BF8CF4152031EEE0002A6B6E /* LocalizationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF4112031EEE0002A6B6E /* LocalizationProvider.swift */; };
 		BF8CF4162031EEE0002A6B6E /* LocalizationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF4122031EEE0002A6B6E /* LocalizationConfiguration.swift */; };
 		BF8CF4172031EEE0002A6B6E /* LocalizationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF4132031EEE0002A6B6E /* LocalizationHelper.swift */; };
 		BF8CF4182031EEE0002A6B6E /* StringTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF4142031EEE0002A6B6E /* StringTable.swift */; };
-		BF8CF41D2031EF3E002A6B6E /* LimeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF40B2031EE16002A6B6E /* LimeConfig.swift */; };
-		BF8CF41E2031EF3E002A6B6E /* LimeConfig+Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF40C2031EE16002A6B6E /* LimeConfig+Singleton.swift */; };
-		BF8CF41F2031EF3E002A6B6E /* LimeConfig+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF40D2031EE16002A6B6E /* LimeConfig+Load.swift */; };
 		BF8CF4202031F4D9002A6B6E /* LocalizationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF4122031EEE0002A6B6E /* LocalizationConfiguration.swift */; };
 		BF8CF4212031F4D9002A6B6E /* LocalizationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF4132031EEE0002A6B6E /* LocalizationHelper.swift */; };
 		BF8CF4222031F4D9002A6B6E /* LocalizationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF4112031EEE0002A6B6E /* LocalizationProvider.swift */; };
@@ -45,21 +39,17 @@
 		BF08C1F02024525200EC2529 /* WeakArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakArray.swift; sourceTree = "<group>"; };
 		BF08C1FA202458A000EC2529 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
 		BF08C1FB202458A000EC2529 /* LimeCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LimeCore.h; path = Source/LimeCore.h; sourceTree = "<group>"; };
-		BF08C1FE202458A800EC2529 /* LimeCore.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LimeCore.podspec; sourceTree = "<group>"; };
+		BF08C1FE202458A800EC2529 /* LimeCore.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LimeCore.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BF08C25220247F8400EC2529 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BF0946BF2029DC8C002F76A6 /* LimeCore.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LimeCore.podspec; sourceTree = "<group>"; };
 		BF0946C02029DC8D002F76A6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF2BECFB208A0E7A00E5663A /* LocalizationTransformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationTransformation.swift; sourceTree = "<group>"; };
 		BF87E18B20AC7340006B28D4 /* GenericLocalizationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericLocalizationProvider.swift; sourceTree = "<group>"; };
 		BF87E18D20AC7523006B28D4 /* SystemLocalizationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemLocalizationProvider.swift; sourceTree = "<group>"; };
-		BF8CF40B2031EE16002A6B6E /* LimeConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LimeConfig.swift; sourceTree = "<group>"; };
-		BF8CF40C2031EE16002A6B6E /* LimeConfig+Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LimeConfig+Singleton.swift"; sourceTree = "<group>"; };
-		BF8CF40D2031EE16002A6B6E /* LimeConfig+Load.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LimeConfig+Load.swift"; sourceTree = "<group>"; };
 		BF8CF4112031EEE0002A6B6E /* LocalizationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationProvider.swift; sourceTree = "<group>"; };
 		BF8CF4122031EEE0002A6B6E /* LocalizationConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationConfiguration.swift; sourceTree = "<group>"; };
 		BF8CF4132031EEE0002A6B6E /* LocalizationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationHelper.swift; sourceTree = "<group>"; };
 		BF8CF4142031EEE0002A6B6E /* StringTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTable.swift; sourceTree = "<group>"; };
-		BF8CF41A2031EF39002A6B6E /* String+LocalizationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+LocalizationProvider.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				BF8CF4082031EC48002A6B6E /* Core */,
-				BF8CF4092031EDDC002A6B6E /* Config */,
 				BF8CF40A2031EDE9002A6B6E /* Localization */,
-				BF8CF4192031EF39002A6B6E /* LocalizedString */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -141,16 +129,6 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		BF8CF4092031EDDC002A6B6E /* Config */ = {
-			isa = PBXGroup;
-			children = (
-				BF8CF40B2031EE16002A6B6E /* LimeConfig.swift */,
-				BF8CF40C2031EE16002A6B6E /* LimeConfig+Singleton.swift */,
-				BF8CF40D2031EE16002A6B6E /* LimeConfig+Load.swift */,
-			);
-			path = Config;
-			sourceTree = "<group>";
-		};
 		BF8CF40A2031EDE9002A6B6E /* Localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,14 +141,6 @@
 				BF8CF4142031EEE0002A6B6E /* StringTable.swift */,
 			);
 			path = Localization;
-			sourceTree = "<group>";
-		};
-		BF8CF4192031EF39002A6B6E /* LocalizedString */ = {
-			isa = PBXGroup;
-			children = (
-				BF8CF41A2031EF39002A6B6E /* String+LocalizationProvider.swift */,
-			);
-			path = LocalizedString;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,17 +260,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF8CF40E2031EE16002A6B6E /* LimeConfig.swift in Sources */,
 				BF2BECFC208A0E7A00E5663A /* LocalizationTransformation.swift in Sources */,
 				BF08C1F42024525200EC2529 /* WeakArray.swift in Sources */,
 				BF8CF4172031EEE0002A6B6E /* LocalizationHelper.swift in Sources */,
 				BF8CF4182031EEE0002A6B6E /* StringTable.swift in Sources */,
-				BF8CF40F2031EE16002A6B6E /* LimeConfig+Singleton.swift in Sources */,
 				BF8CF4162031EEE0002A6B6E /* LocalizationConfiguration.swift in Sources */,
 				BF08C1F32024525200EC2529 /* Lock.swift in Sources */,
 				BF87E18E20AC7523006B28D4 /* SystemLocalizationProvider.swift in Sources */,
 				BF8CF4152031EEE0002A6B6E /* LocalizationProvider.swift in Sources */,
-				BF8CF4102031EE16002A6B6E /* LimeConfig+Load.swift in Sources */,
 				BF08C1F12024525200EC2529 /* LimeDebug.swift in Sources */,
 				BF87E18C20AC7340006B28D4 /* GenericLocalizationProvider.swift in Sources */,
 			);
@@ -314,13 +281,10 @@
 				BFD27D8A2119E3AA0020ABA4 /* LocalizationTransformation.swift in Sources */,
 				BF08C1F72024525D00EC2529 /* Lock.swift in Sources */,
 				BF8CF4202031F4D9002A6B6E /* LocalizationConfiguration.swift in Sources */,
-				BF8CF41F2031EF3E002A6B6E /* LimeConfig+Load.swift in Sources */,
 				BF8CF4212031F4D9002A6B6E /* LocalizationHelper.swift in Sources */,
 				BF8CF4222031F4D9002A6B6E /* LocalizationProvider.swift in Sources */,
-				BF8CF41E2031EF3E002A6B6E /* LimeConfig+Singleton.swift in Sources */,
 				BF7DD3F42141844200766D03 /* SystemLocalizationProvider.swift in Sources */,
 				BF8CF4232031F4D9002A6B6E /* StringTable.swift in Sources */,
-				BF8CF41D2031EF3E002A6B6E /* LimeConfig.swift in Sources */,
 				BF08C1F52024525800EC2529 /* LimeDebug.swift in Sources */,
 				BFD27D8B2119E3B20020ABA4 /* GenericLocalizationProvider.swift in Sources */,
 			);

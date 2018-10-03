@@ -16,9 +16,8 @@
 
 import Foundation
 
-/// A LocalizationConfiguration protocol defines immutable configuration
-/// which affects functionality of `LocalizationProvider`.
-public protocol LocalizationConfiguration: ImmutableConfig {
+/// Protocol defines configuration which affects functionality of `LocalizationProvider`.
+public protocol LocalizationConfigurationType {
     /// Defines default language when current system language is not supported in your
     /// string tables. LocalizationProvider uses following resolving rules if
     /// initial language is not set:
@@ -75,9 +74,8 @@ public protocol LocalizationConfiguration: ImmutableConfig {
     var transformation: LocalizationTransformation? { get }
 }
 
-/// The `MutableLocalizationConfiguration` object implements `LocalizationConfiguration` protocol
-/// and also conforms to `LimeConfig.MutableConfig` protocol.
-public class MutableLocalizationConfiguration: MutableConfig, LocalizationConfiguration {
+/// Concrete implementation of LocalizationConfigurationType with mutable properties.
+public class LocalizationConfiguration: LocalizationConfigurationType {
     
     public var defaultLanguage: String                      = "en"
     public var languageMappings: [String:String]?           = nil
@@ -103,34 +101,6 @@ public class MutableLocalizationConfiguration: MutableConfig, LocalizationConfig
         self.prefixForLocalizedLanguageNames = copyFrom.prefixForLocalizedLanguageNames
         self.transformation = copyFrom.transformation
     }
-    
-    public func makeImmutable() -> ImmutableConfig {
-        return self
-    }
-}
-
-
-public extension LimeConfig {
-    
-    /// Returns configuration for `LocalizationProvider`.
-    public var localization: LocalizationConfiguration {
-        if let cfg: MutableLocalizationConfiguration = self.config(for: LimeConfig.domainForLocalization) {
-            return cfg
-        }
-        return LimeConfig.fallbackLocalizationConfig
-    }
-    
-    /// Registers `MutableLocalizationConfiguration` to `LimeConfig` facility. You can call this method only
-    /// once per LimeConfig instance, during the config's domain registration phase.
-    public var registerLocalization: MutableLocalizationConfiguration? {
-        return self.register(MutableLocalizationConfiguration(), for: LimeConfig.domainForLocalization)
-    }
-    
-    /// Domain for config registration
-    private static let domainForLocalization = "lime.localization"
-    
-    /// Fallback object returned when localization domain has not been properly registered.
-    private static let fallbackLocalizationConfig = MutableLocalizationConfiguration()
 }
 
 
