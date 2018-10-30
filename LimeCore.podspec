@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'LimeCore'
-  s.version = '1.1.3'
+  s.version = '1.2.0'
   # Metadata
   s.license = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
   s.summary = 'Supporting classes developed and used by Wultra'
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |sub|
     sub.source_files = 'Source/Core/*.swift'
   end
-  
+
   # 'Localization' subspec
   s.subspec 'Localization' do |sub|
     sub.source_files = 'Source/Localization/*.swift'
