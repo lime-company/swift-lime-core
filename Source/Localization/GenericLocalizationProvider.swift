@@ -37,7 +37,7 @@ public protocol GenericLocalizationProvider: class {
 public extension GenericLocalizationProvider {
     
     /// Default implementation for `localizedFormattedString()`
-    public func localizedFormattedString(_ formattedKey: String, _ arguments: CVarArg...) -> String {
+    func localizedFormattedString(_ formattedKey: String, _ arguments: CVarArg...) -> String {
         let localizedKey = localizedString(formattedKey)
         return withVaList(arguments) { NSString(format: localizedKey, arguments: $0) } as String
     }
