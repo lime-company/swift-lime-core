@@ -212,10 +212,12 @@
 				TargetAttributes = {
 					BF08C1D220244FC700EC2529 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					BF08C1E22024503500EC2529 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -226,6 +228,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = BF08C1C920244FC700EC2529;
 			productRefGroup = BF08C1D420244FC700EC2529 /* Products */;
@@ -428,7 +431,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.getlime.lib.LimeCore;
 				PRODUCT_NAME = LimeCore;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -449,7 +452,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.getlime.lib.LimeCore;
 				PRODUCT_NAME = LimeCore;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -472,7 +475,7 @@
 				PRODUCT_NAME = LimeCore;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 			};
 			name = Debug;
@@ -495,7 +498,7 @@
 				PRODUCT_NAME = LimeCore;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 			};
 			name = Release;

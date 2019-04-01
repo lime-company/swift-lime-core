@@ -43,20 +43,20 @@ public protocol WeakReference: class {
 public extension Array where Element: WeakReference {
 
     ///  Initializes an array with sequence of WeakReference.T objects
-    public init<S>(_ weakReferences: S) where S: Sequence, Element.T == S.Element {
+    init<S>(_ weakReferences: S) where S: Sequence, Element.T == S.Element {
         self.init(weakReferences.map { Element($0) })
     }
     
     /// Returns array of strong, nullable referenced objects. The order of objects is the same as
     /// order of WeakReference-d items.
     /// Note that complexity of this operation is O(N)
-    public var allNullableStrongReferences: [Element.T?] {
+    var allNullableStrongReferences: [Element.T?] {
         return self.map { $0.instance }
     }
 
     /// Returns strong referenced array with all still valid stored objects
     /// Note that complexity of this operation is O(N)
-    public var allStrongReferences: [Element.T] {
+    var allStrongReferences: [Element.T] {
         var result = [Element.T]()
         result.reserveCapacity(self.count)
         self.forEach { (weakRef) in
@@ -68,28 +68,28 @@ public extension Array where Element: WeakReference {
     }
     
     /// Removes all empty WeakReference elements from the array.
-    public mutating func removeAllEmptyReferences() {
+    mutating func removeAllEmptyReferences() {
         self = self.filter { !$0.isEmpty } .map { $0 }
     }
     
     /// Append sequence of WeakReference.T typed objects.
-    public mutating func append<S>(contentsOf newElements: S) where S : Sequence, Element.T == S.Element {
+    mutating func append<S>(contentsOf newElements: S) where S : Sequence, Element.T == S.Element {
         self.append(contentsOf: newElements.map { Element($0) })
     }
     
     /// Assign sequence of WeakReference.T typed objects.
-    public mutating func assign<S>(contentsOf newElements: S) where S : Sequence, Element.T == S.Element {
+    mutating func assign<S>(contentsOf newElements: S) where S : Sequence, Element.T == S.Element {
         self = newElements.map { Element($0) }
     }
     
     /// Append one element which is WeakReference.T type.
-    public mutating func append(_ newElement: Element.T) {
+    mutating func append(_ newElement: Element.T) {
         self.append(Element(newElement))
     }
     
     /// Removes one element which is WeakReference.T type.
-    public mutating func remove(_ element: Element.T) {
-        if let index = self.index(where: { $0.instance === element }) {
+    mutating func remove(_ element: Element.T) {
+        if let index = self.firstIndex(where: { $0.instance === element }) {
             self.remove(at: index)
         }
     }
