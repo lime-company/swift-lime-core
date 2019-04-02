@@ -89,7 +89,7 @@ public class LimeDebug {
     ///   - file: The file name to print with message. The default is file path where fatalError is called for DEBUG configuration, emptry string for other
     ///   - line: The line number to print along with message. The default is the line number where fatalError is called.
     public static func fatalError(_ message: @autoclosure () -> String = "", file: StaticString = "", line: UInt = #line) -> Never {
-        Swift.fatalError(message, file: file, line: line)
+        Swift.fatalError(message(), file: file, line: line)
     }
     #endif
 }
