@@ -46,8 +46,8 @@ public enum LocalizationTransformationOperation {
     case keep
     /// Localized string will be removed from final string table.
     case erase
-    /// Localized string will be stored under the new key, provided as case parameter.
-    case moveTo(key: String)
-    /// Localized string will be stored under the original and also the new key, provided as case parameter.
-    case copyTo(key: String)
+    /// Localized string will be stored under new keys, provided as case parameter.
+    case moveTo(keys: [String])
+    /// Localized string will be stored under the original and also new keys, provided as case parameter.
+    case copyTo(keys: [String])
 }
