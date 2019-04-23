@@ -256,11 +256,15 @@ fileprivate extension LocalizationProvider {
                 newTable[key] = value
             case .erase:
                 break
-            case .moveTo(let newKey):
-                newTable[newKey] = value
-            case .copyTo(let newKey):
+            case .moveTo(let newKeys):
+                for newKey in newKeys {
+                    newTable[newKey] = value
+                }
+            case .copyTo(let newKeys):
                 newTable[key] = value
-                newTable[newKey] = value
+                for newKey in newKeys {
+                    newTable[newKey] = value
+                }
             }
         }
         return newTable
