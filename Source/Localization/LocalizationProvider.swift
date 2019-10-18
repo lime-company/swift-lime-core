@@ -392,28 +392,26 @@ fileprivate extension LocalizationProvider {
     /// If you provide a nil as a parameter, then it will try to determine default
     /// language. The method always returns "en" as fallback.
     func suggestLanguage(_ languageIdentifier: String?) -> String {
-        var identifier = languageIdentifier
         if self.privateSupportedLanguagesSet.isEmpty {
             D.print("LocalizationProvider: Your localization configuration appears to be broken. Defaulting to 'en'")
             return "en"
         }
         // Try validate & map identifier directly
-        if let lang = tryMapIdentifier(identifier) {
+        if let lang = tryMapIdentifier(languageIdentifier) {
             return lang
         }
         // Try system language
-        identifier = UserDefaults.standard.stringArray(forKey: "AppleLanguages")?.first
-        if let lang = tryMapIdentifier(identifier) {
-            return lang
+        for systemLanguageVariant in parseLocaleVariants(fromIdentifier: UserDefaults.standard.stringArray(forKey: "AppleLanguages")?.first) {
+            if let lang = tryMapIdentifier(systemLanguageVariant) {
+                return lang
+            }
         }
         // Try default language from config
-        identifier = privateConfiguration.defaultLanguage
-        if let lang = tryMapIdentifier(identifier) {
+        if let lang = tryMapIdentifier(privateConfiguration.defaultLanguage) {
             return lang
         }
         // Try native development region
-        identifier = Bundle.main.developmentLocalization
-        if let lang = tryMapIdentifier(identifier) {
+        if let lang = tryMapIdentifier(Bundle.main.developmentLocalization) {
             return lang
         }
         // ...well, this is not good. We are out of options, so return a first language
@@ -465,5 +463,42 @@ fileprivate extension LocalizationProvider {
         }
         // Fallback... just display missing localization prefix
         return privateConfiguration.missingLocalizationPrefix + localizationKey
+    }
+    
+    /// Returns all variants for given locale identifier sorted from narrowest to widest impact.
+    ///
+    /// For example: for pt-BR-US, it will return an array of ["pt-BR-US", "pt-BR", "pt-US", "pt"]
+    ///
+    /// - Parameter fromIdentifier: locale identifier
+    func parseLocaleVariants(fromIdentifier: String?) -> [String] {
+        
+        guard let idf = fromIdentifier else {
+            return []
+        }
+        
+        var result = [String]()
+        let compomnents = Locale.components(fromIdentifier: idf)
+        
+        if let lang = compomnents[CFLocaleKey.languageCode.rawValue as String] {
+            
+            let country = compomnents[CFLocaleKey.countryCode.rawValue as String]
+            let variant = compomnents[CFLocaleKey.variantCode.rawValue as String]
+            
+            if country != nil && variant != nil {
+                result.append("\(lang)-\(country!)-\(variant!)")
+            }
+            
+            if country != nil {
+                result.append("\(lang)-\(country!)")
+            }
+            
+            if variant != nil {
+                result.append("\(lang)-\(variant!)")
+            }
+            
+            result.append(lang)
+        }
+        
+        return result
     }
 }
