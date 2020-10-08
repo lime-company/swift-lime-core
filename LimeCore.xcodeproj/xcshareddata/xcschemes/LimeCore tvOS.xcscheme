@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BF08C1D220244FC700EC2529"
-               BuildableName = "LimeCore.framework"
-               BlueprintName = "LimeCore iOS"
+               BlueprintIdentifier = "BF23BE31252F406700EF4630"
+               BuildableName = "LimeCore tvOS.framework"
+               BlueprintName = "LimeCore tvOS"
                ReferencedContainer = "container:LimeCore.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -40,15 +40,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BF08C1D220244FC700EC2529"
-            BuildableName = "LimeCore.framework"
-            BlueprintName = "LimeCore iOS"
-            ReferencedContainer = "container:LimeCore.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -59,9 +50,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BF08C1D220244FC700EC2529"
-            BuildableName = "LimeCore.framework"
-            BlueprintName = "LimeCore iOS"
+            BlueprintIdentifier = "BF23BE31252F406700EF4630"
+            BuildableName = "LimeCore tvOS.framework"
+            BlueprintName = "LimeCore tvOS"
             ReferencedContainer = "container:LimeCore.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
